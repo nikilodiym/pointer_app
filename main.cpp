@@ -3,19 +3,24 @@
 
 using namespace std;
 
-void stars(int n) {
-	if (n >= 0) {
-		cout << "*";
-		stars(n - 1);
+int sum_between_a_and_b(int a, int b) {
+	int sum = 0;
+	for (int i = a; i <= b; i++) {
+		sum += i;
 	}
+	return sum;
 }
 
 int main() {
-	int n;
-	cout << "Enter a number: ";
-	cin >> n;
-	stars(n);
-	cout << endl;
+	int num1, num2;
+	cout << "Enter the first number: ";
+	cin >> num1;
+
+	cout << "Enter the second number: ";
+	cin >> num2;
+
+	int result = sum_between_a_and_b(num1, num2);
+	cout << "Sum between " << num1 << " and " << num2 << " is " << result << endl;
 
 	system("pause");
 	return 0;
