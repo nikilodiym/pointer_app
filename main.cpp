@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Функція для генерації випадкового чотирицифрового числа як рядка
 string generateSecretNumber() {
     string number;
     srand(time(nullptr));
@@ -15,7 +14,6 @@ string generateSecretNumber() {
     return number;
 }
 
-// Функція для підрахунку биків і корів
 void countBullsAndCows(const string& secret, const string& guess, int& bulls, int& cows) {
     bulls = 0;
     cows = 0;
@@ -29,20 +27,17 @@ void countBullsAndCows(const string& secret, const string& guess, int& bulls, in
     }
 }
 
-// Рекурсивна функція для гри
 void playGame(const string& secret, int attempts) {
     string guess;
     cout << "Enter your guess (4 digits): ";
     cin >> guess;
 
-    // Перевірка довжини введеного рядка
     if (guess.length() != 4) {
         cout << "Invalid input. Please enter exactly 4 digits." << endl;
         playGame(secret, attempts);
         return;
     }
 
-    // Перевірка, чи всі символи є цифрами
     for (char c : guess) {
         if (!isdigit(c)) {
             cout << "Invalid input. Please enter only digits." << endl;
